@@ -55,7 +55,7 @@ public class StudentList {
             return NOT_FOUND;
         }
         while(i < numStudents) {
-            if (students[i].equals(s)) {
+            if (students[i].compareTo(s) == 0) {
                 return i;
             }
             i++;
