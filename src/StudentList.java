@@ -98,6 +98,16 @@ public class StudentList {
     }
 
     /**
+     * checks if the list is empty
+     * @return true if list is empty false if list is not empty
+     */
+    public boolean isEmpty(){
+        if(numStudents == 0){
+            return true;
+        }
+        return false;
+    }
+    /**
      * This method prints out all the students in the student list
      */
     public void print(){
