@@ -5,7 +5,6 @@ import java.util.Scanner;
  * @FaresElkhouli
  * @ZhiyuFeng
  */
-imput java.io.*;
 public class TuitionManager {
 	/**
 	 * To read the command from the file.
@@ -23,7 +22,7 @@ public class TuitionManager {
 	      while ( !done )
 	      {
 	         String command = stdin.next();
-	         char ccommand=command.charAt(0)
+	         char ccommand=command.charAt(0);
 	         switch (ccommand)  
 	         {   
 	            case 'I': add('I');
@@ -44,7 +43,8 @@ public class TuitionManager {
 	            System.out.println("Command"+"'"+command+"'"+"not supported!");		
 	         }  
 	      }
-	public void addcommand(char studenttype) {
+	   }
+	public void add(char studenttype) {
 	/**
 	 * If the command is Instate student
 	 * check the fund.
@@ -58,6 +58,10 @@ public class TuitionManager {
 	}
 	if (studenttype == 'I') {
 		int fund = stdin.next();
+		Student s = new Instate(fname, lname, credut,fund);
+		if (cs213.contains(s)) {
+			System.out.println("Student is already in!");
+		}
 		cs213.add(new Instate(fname,lname,credit,fund));
 		return;
 	}
@@ -67,6 +71,10 @@ public class TuitionManager {
 	 */
 	if (studenttype == 'O') {
 		boolean tristate = stdin.next();
+		Student s = new Outstate(fname,lname,credit,tristate);
+		if(cs213.contains(s)) {
+			System.out.println("Student is already in!");
+		}
 		cs213.add(new Outstate(fname,lname,credit,tristate));
 		return;
 	}
@@ -81,6 +89,10 @@ public class TuitionManager {
 			return;
 		}
 		boolean exchange = stdin.next();
+		Student s = new Internation(fname,lname,credit,exchange);
+		if(cs213.contains(s)) {
+			System.out.println("Student is already in!");
+		}
 		cs213.add(new International(fname,lname,credit,tristate));
 		return;
 	}
@@ -92,12 +104,13 @@ public class TuitionManager {
 	 */
 	String fname = stdin.next();
 	String lname = stdin.next();
-	boolean successfullyRemoved = cs213.remove(new Student(fname,lname));
-	if (!succeddfullyRemoved) {
-		System.out.println(outMember.toString() + " is not a student!");
+	Student s = new Instate(fname,lname,1,1);
+	boolean successfullyRemoved = cs213.remove();
+	if (!successfullyRemoved) {
+		System.out.println(s.toString() + " is not a student!");
 		}
 		else {
-		System.out.println(outMember.toString() + " has been removed!");
+		System.out.println(s.toString() + " has been removed!");
 		}
 		return;
 	}
@@ -106,8 +119,13 @@ public class TuitionManager {
 		/**
 		 * the command is to print the whold chart out.
 		 */
-		if (cs213)
-			
+		if (cs213.isEmpty) {
+			System.out.println("List is empty!")
+			return;
+		}
+		else {
+			cs213.print();
+		}
+		return;
 		}
 	}
-	   }
