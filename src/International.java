@@ -5,15 +5,8 @@
  */
 public class International extends Student {
     private boolean exchange;
-
-	/**
-	 * constructor for international students
-	 * @param fname
-	 * @param lname
-	 * @param credit
-	 * @param exchange
-	 */
-	public International(String fname, String lname, int credit, boolean exchange) {
+    
+    public International(String fname, String lname, int credit, boolean exchange) {
     	super(fname,lname,credit);
     	this.exchange=exchange;
     }
@@ -22,6 +15,7 @@ public class International extends Student {
      * Tuition calculator for International student
      * @return tuition due
      */
+    
     public int tuitionDue() {
     	int perCreditPrice = 945;
     	int partTimeCredits = 12;
@@ -30,6 +24,7 @@ public class International extends Student {
     	int maxCredits = 15;
     	int tuition = 0;
     	int ccredit = 0;
+    	int intFee = 350; 
     	if (credit > maxCredits) {
     		ccredit = maxCredits;
     	}
@@ -37,10 +32,10 @@ public class International extends Student {
     		ccredit = credit;
     	}
     	if (exchange) {
-    		tuition = 1791;
+    		tuition = fullTimeFee + intFee;
     	}
     	else {
-    		tuition = perCreditPrice*ccredit+350;
+    		tuition = perCreditPrice*ccredit+intFee;
     	}
     	
     	if(ccredit<partTimeCredits) {
@@ -51,12 +46,7 @@ public class International extends Student {
     	}
     	return tuition;
     }
-
-	/**
-	 * string representation of international student
-	 * @return string
-	 */
-	public String toString() {
+    public String toString() {
     	if (exchange) {
     		return super.toString()+" is an exchange student.";
     	}
