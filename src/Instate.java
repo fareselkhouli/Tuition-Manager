@@ -5,8 +5,15 @@
  */
 public class Instate extends Student {
     private int funds;
-    
-    public Instates(String fname, String lname, int credit, int funds) {
+
+	/**
+	 * the constructor for instate student
+	 * @param fname
+	 * @param lname
+	 * @param credit
+	 * @param funds
+	 */
+	public Instate(String fname, String lname, int credit, int funds) {
     	super(fname, lname, credit);
     	this.funds = funds;
     }
@@ -30,21 +37,26 @@ public class Instate extends Student {
     		ccredit = credit;
     	}
     	
-    	if (ccredit >= partTimeCredits && fund != 0) {
-    		tuition = perCreditPrice*ccredit - fund;
+    	if (ccredit >= partTimeCredits && funds != 0) {
+    		tuition = perCreditPrice*ccredit - funds;
     	}
     	else {
     		tuition = perCreditPrice*ccredit;
     	}
     	if (ccredit < partTimeCredits) {
-    		turtion += partTimeFee;
+    		tuition += partTimeFee;
     	}
     	else {
     		tuition += fullTimeFee;
     	}
     	return tuition;
     }
-    public String toString() {
+
+	/**
+	 * string representation of instate student
+	 * @return string
+	 */
+	public String toString() {
     	return super.toString()+" the number of funds are: "+funds;
     }
     public static void main(String[] args) {
