@@ -79,6 +79,24 @@ public class StudentList {
         return true;
     }
 
+
+    /**
+     * This method checks if the student is in the list already
+     * @param s student
+     * @return true if student is in the list, false if he is not
+     */
+    public boolean contains(Student s)
+    {
+        if(numStudents == 0){
+            return false;
+        }
+        int index = find(s);
+        if(index == -1) {
+            return false;
+        }
+        return true;
+    }
+
     /**
      * This method prints out all the students in the student list
      */
