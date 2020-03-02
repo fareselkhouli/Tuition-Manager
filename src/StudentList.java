@@ -112,7 +112,7 @@ public class StudentList {
      */
     public void print(){
         for(int i = 0; i < numStudents; ++i){
-            System.out.println(students[i].toString());
+            System.out.println(students[i].toString() + " tuition due: $" + students[i].tuitionDue());
         }
     }
 }
