@@ -6,15 +6,12 @@ import java.util.Scanner;
  * @ZhiyuFeng
  */
 public class TuitionManager {
-	/**
-	 * To read the command from the file.
-	 */
 	Scanner stdin;
-	StudentList cs213=new StudentList();
+	StudentList cs213 = new StudentList();
+
 	/**
-	 * find the command
+	 * run method to drive input/output
 	 */
-	
 	 public void run()
 	   {
 	      stdin = new Scanner(System.in);
@@ -44,6 +41,11 @@ public class TuitionManager {
 	         }  
 	      }
 	   }
+
+	/**
+	 * calls the add method in StudentList
+ 	 * @param studenttype
+	 */
 	public void add(char studenttype) {
 	/**
 	 * If the command is Instate student
@@ -51,14 +53,14 @@ public class TuitionManager {
 	 */
 	String fname = stdin.next();
 	String lname = stdin.next();
-	int credit = stdin.next();
+	int credit = stdin.nextInt();
 	if (credit <= 0) {
 		System.out.println(credit + " is not a vaild credit!");
 		return;
 	}
 	if (studenttype == 'I') {
-		int fund = stdin.next();
-		Student s = new Instate(fname, lname, credut,fund);
+		int fund = stdin.nextInt();
+		Student s = new Instate(fname, lname, credit,fund);
 		if (cs213.contains(s)) {
 			System.out.println("Student is already in!");
 		}
@@ -70,7 +72,7 @@ public class TuitionManager {
 	 * check the tristate
 	 */
 	if (studenttype == 'O') {
-		boolean tristate = stdin.next();
+		boolean tristate = stdin.nextBoolean();
 		Student s = new Outstate(fname,lname,credit,tristate);
 		if(cs213.contains(s)) {
 			System.out.println("Student is already in!");
@@ -85,27 +87,27 @@ public class TuitionManager {
 	 */
 	if (studenttype == 'N') {
 		if (credit < 9) {
-			System.out.println(credit+" is not a vaild credit!");
+			System.out.println(credit+" is not a valid credit!");
 			return;
 		}
-		boolean exchange = stdin.next();
-		Student s = new Internation(fname,lname,credit,exchange);
+		boolean exchange = stdin.nextBoolean();
+		Student s = new International(fname,lname,credit,exchange);
 		if(cs213.contains(s)) {
 			System.out.println("Student is already in!");
 		}
-		cs213.add(new International(fname,lname,credit,tristate));
+		cs213.add(new International(fname,lname,credit,exchange));
 		return;
 	}
 	}
-	
-	public void remove() {
+
 	/**
 	 * if the command is remove the student.
 	 */
+	public void remove() {
 	String fname = stdin.next();
 	String lname = stdin.next();
 	Student s = new Instate(fname,lname,1,1);
-	boolean successfullyRemoved = cs213.remove();
+	boolean successfullyRemoved = cs213.remove(s);
 	if (!successfullyRemoved) {
 		System.out.println(s.toString() + " is not a student!");
 		}
@@ -114,13 +116,13 @@ public class TuitionManager {
 		}
 		return;
 	}
-	
+
+	/**
+	 * the command is to print the whole chart out.
+	 */
 	public void print() {
-		/**
-		 * the command is to print the whold chart out.
-		 */
-		if (cs213.isEmpty) {
-			System.out.println("List is empty!")
+		if (cs213.isEmpty()) {
+			System.out.println("List is empty!");
 			return;
 		}
 		else {
