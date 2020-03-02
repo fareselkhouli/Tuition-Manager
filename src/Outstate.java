@@ -49,8 +49,18 @@ public class Outstate extends Student {
         return tuition;
     }
 
+    /**
+     * override tostring method in Student
+     * @return string representation of a student
+     */
     public String toString(){
-        return super.toString() + " tuition due: $" + tuitionDue();
+        if(tristate){
+            return super.toString() + " is a tristate student.";
+        }
+        else{
+            return super.toString() + " is not a tristate student.";
+        }
+
     }
 
     public static void main(String[] args){
