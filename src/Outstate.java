@@ -6,6 +6,13 @@
 public class Outstate extends Student {
     private boolean tristate;
 
+    /**
+     * constructor for Outstate Student
+     * @param fname
+     * @param lname
+     * @param credit
+     * @param tristate
+     */
     public Outstate(String fname, String lname,int credit, boolean tristate){
         super(fname,lname,credit);
         this.tristate = tristate;
@@ -32,7 +39,7 @@ public class Outstate extends Student {
             ccredit = credit;
         }
 
-        if(tristate){
+        if(tristate && credit >= partTimeCredits){
             tuition = perCreditPrice*ccredit - triStateDiscount*ccredit;
         }
         else{
