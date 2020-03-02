@@ -72,7 +72,11 @@ public class TuitionManager {
 	 * check the tristate
 	 */
 	if (studenttype == 'O') {
-		boolean tristate = stdin.nextBoolean();
+		boolean tristate = false;
+		String tri = stdin.next();
+		if(tri.equals("T")){
+			tristate = true;
+		}
 		Student s = new Outstate(fname,lname,credit,tristate);
 		if(cs213.contains(s)) {
 			System.out.println("Student is already in!");
@@ -90,7 +94,11 @@ public class TuitionManager {
 			System.out.println(credit+" is not a valid credit!");
 			return;
 		}
-		boolean exchange = stdin.nextBoolean();
+		String ex = stdin.next();
+		boolean exchange = false;
+		if(ex.equals("T")){
+			exchange = true;
+		}
 		Student s = new International(fname,lname,credit,exchange);
 		if(cs213.contains(s)) {
 			System.out.println("Student is already in!");
@@ -106,13 +114,14 @@ public class TuitionManager {
 	public void remove() {
 	String fname = stdin.next();
 	String lname = stdin.next();
-	Student s = new Instate(fname,lname,1,1);
+	Student s = new Instate(fname,lname,1,1); //temporary Instate object to allow us to remove
+
 	boolean successfullyRemoved = cs213.remove(s);
 	if (!successfullyRemoved) {
-		System.out.println(s.toString() + " is not a student!");
+		System.out.println(fname + " " +  lname + " is not a student!");
 		}
 		else {
-		System.out.println(s.toString() + " has been removed!");
+		System.out.println(fname + " " +  lname + " has been removed!");
 		}
 		return;
 	}
