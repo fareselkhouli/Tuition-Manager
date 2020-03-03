@@ -59,8 +59,31 @@ public class Instate extends Student {
 	public String toString() {
     	return super.toString()+" the number of funds are: "+funds;
     }
-    public static void main(String[] args) {
-    	
+
+	//test bed main
+	public static void main(String[] args) {
+    	String firstName = "John";
+    	String lastName = "Man";
+    	int creds = 18;
+    	int funding = 180;
+
+    	//testing constructor
+    	Student johny = new Instate(firstName,lastName,creds,funding);
+		//testing toString method
+		System.out.println(johny.toString());
+		//testing tuitionDue
+		System.out.println(johny.tuitionDue());
+
+		String firstName2 = "John";
+		String lastName2 = "Lamb";
+		int creds2 = 9;
+		int funding2 = 100;
+
+		Student johny2 = new Instate(firstName2,lastName2,creds2,funding2);
+		//testing tuitionDue
+		System.out.println(johny2.tuitionDue());
+		//testing compareTo
+		System.out.println(johny.compareTo(johny2));
     }
 }
 
