@@ -55,8 +55,30 @@ public class International extends Student {
     		return super.toString()+" is not an exchange student.";
     	}
     }
-    
+
+    //test bed main
     public static void main(String[] args) {
-    	
+		String firstName = "John";
+		String lastName = "Man";
+		int creds = 18;
+		boolean exch = true;
+
+		//testing constructor
+		Student johny = new International(firstName,lastName,creds,exch);
+		//testing toString method
+		System.out.println(johny.toString());
+		//testing tuitionDue
+		System.out.println(johny.tuitionDue());
+
+		String firstName2 = "John";
+		String lastName2 = "Lamb";
+		int creds2 = 9;
+		boolean exch2 = false;
+
+		Student johny2 = new International(firstName2,lastName2,creds2,exch2);
+		//testing tuitionDue
+		System.out.println(johny2.tuitionDue());
+		//testing compareTo
+		System.out.println(johny.compareTo(johny2));
     }
 }
