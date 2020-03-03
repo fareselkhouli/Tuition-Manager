@@ -8,7 +8,7 @@ public class International extends Student {
     
     public International(String fname, String lname, int credit, boolean exchange) {
     	super(fname,lname,credit);
-    	this.exchange=exchange;
+    	this.exchange = exchange;
     }
     
     /**
@@ -33,6 +33,7 @@ public class International extends Student {
     	}
     	if (exchange) {
     		tuition = fullTimeFee + intFee;
+    		return tuition;
     	}
     	else {
     		tuition = perCreditPrice*ccredit+intFee;
