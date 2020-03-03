@@ -71,6 +71,27 @@ public class Outstate extends Student {
     }
 
     public static void main(String[] args){
+        String firstName = "John";
+        String lastName = "Man";
+        int creds = 18;
+        boolean tri = true;
 
+        //testing constructor
+        Student johny = new Outstate(firstName,lastName,creds,tri);
+        //testing toString method
+        System.out.println(johny.toString());
+        //testing tuitionDue
+        System.out.println(johny.tuitionDue());
+
+        String firstName2 = "John";
+        String lastName2 = "Lamb";
+        int creds2 = 9;
+        boolean tri2 = false;
+
+        Student johny2 = new Outstate(firstName2,lastName2,creds2,tri2);
+        //testing tuitionDue
+        System.out.println(johny2.tuitionDue());
+        //testing compareTo
+        System.out.println(johny.compareTo(johny2));
     }
 }
