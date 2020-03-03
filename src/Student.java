@@ -47,7 +47,7 @@ public abstract class Student implements Comparable{
      */
     @Override
     public String toString(){
-        return fname + " " + lname + " " + credit;
+        return fname + " " + lname + " has" + credit + "credits";
     }
 
     public abstract int tuitionDue();
